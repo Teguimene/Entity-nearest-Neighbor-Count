@@ -135,17 +135,13 @@ public class Utils {
 //        boolean sameParent = checkParentId(protein_1,protein_2);
 
         System.out.println("totalSimilitude: " + totalSimilitude + "\t score : " + scores.getScore() + " tscore : " + scores.getTscore());
-        /*if(scores.getScore() >= 0.9 || scores.getScore() >= 0.72) {
+        if(scores.getScore() >= 0.9 || scores.getScore() >= 0.72) {
             protein.setValuePrediction("1");
-        } else */
-            if((totalSimilitude >= NB_SAME_ELEMENTS) && ((scores.getScore() >= 0.43))) {
+        } else if((totalSimilitude >= NB_SAME_ELEMENTS) && ((scores.getScore() >= 0.43)) && ((scores.getP_value() < 0.26))) {
                 protein.setValuePrediction("1");
-            }
-       /*             protein.setValuePrediction("1");
-        } else
-            if ((totalSimilitude < NB_SAME_ELEMENTS) && (scores.getScore() >= 0.53)) {
+        } else if ((totalSimilitude < NB_SAME_ELEMENTS) && (scores.getScore() >= 0.53) && ((scores.getP_value() <= 0.11))) {
             protein.setValuePrediction("1");
-        } */
+        }
         else {
             protein.setValuePrediction("0");
         }
